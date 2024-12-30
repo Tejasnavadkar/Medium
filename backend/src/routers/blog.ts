@@ -50,10 +50,26 @@ blogRouter.get('/bulk',async (c)=>{
         datasourceUrl: c.env.DATABASE_URL,
     }).$extends(withAccelerate())
 
-   const blogs = await prisma.blog.findMany()
+   const blogs = await prisma.blog.findMany({
+    select:{
+        id:true,
+        title:true,
+        content:true,
+        author:{
+            select:{
+                name:true,
+                id:true
+            }
+        }
+    },
+    // include:{  // all author details
+    //     author:true
+    // }
+   })
     return c.json({allBlogs:blogs})
 
   } catch (error) {
+    console.log("error while fetching all todos",error)
     c.status(411)
     return c.json({msg:"error while fetching all todos"})
   }
@@ -108,6 +124,17 @@ blogRouter.get('/bulk',async (c)=>{
   const blog = await prisma.blog.findUnique({
     where:{
         id:id
+    },
+    select:{
+        id:true,
+        title:true,
+        content:true,
+        author_id:true,
+        author:{
+            select:{
+                name:true
+            }
+        }
     }
    })
 
