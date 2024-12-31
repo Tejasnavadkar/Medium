@@ -9,9 +9,9 @@ const AvatarComponent =({name,size}:{name:string,size?:"big" | "small"}) =>{
     console.log("namearr",namearr)
     if(namearr.length > 1){
         console.log("inside if")
-       setInitials(namearr[0].charAt(0) + namearr[1].charAt(0))
+       setInitials(namearr[0].toUpperCase().charAt(0) + namearr[1].toUpperCase().charAt(0))
     }else{
-        setInitials(name?.charAt(0))
+        setInitials(name?.toUpperCase().charAt(0))
     }
   },[])
 

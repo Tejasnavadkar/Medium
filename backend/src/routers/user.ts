@@ -42,7 +42,7 @@ userRouter.post('/signup',async (c)=>{
     }
     
     const jwt = await sign({id:createdUser.id,email:createdUser.email},c.env.JWT_SECRET)
-    return c.json({msg:"user created",token:jwt})
+    return c.json({msg:"user created",token:jwt,user:createdUser})
     
     } catch (error) {
       console.log("error while signup",error)
@@ -84,7 +84,7 @@ userRouter.post('/signup',async (c)=>{
     
      const token = await sign({id:user.id,email:user.email},c.env.JWT_SECRET)
     
-     return c.json({token:token})
+     return c.json({token:token,user:user})
     })
     
     
