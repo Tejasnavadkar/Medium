@@ -1,15 +1,19 @@
+import { useRecoilValueLoadable } from "recoil"
 import { AppBar } from "../components/AppBar"
 import { BlogCard } from "../components/BlogCard"
 import { BlogSkeleton } from "../components/BlogSkeleton"
-import { useBlogs } from "../hooks"
+import { blogProp } from "../hooks"
+import { getAllBlogs } from "../Store/atoms"
 
 
 
 export const Blogs = () =>{
 
-    const {isloading,blogs} = useBlogs()
+    // const {isloading,blogs} = useBlogs()
 
-    if(isloading){
+    const blogs = useRecoilValueLoadable(getAllBlogs)
+
+    if(blogs.state === 'loading' ){
         return <div> 
             <AppBar/>
             <div className="h-screen flex flex-col justify-center items-center" >
@@ -30,7 +34,7 @@ export const Blogs = () =>{
         </div>
        <div className="flex justify-center">
        <div className="flex flex-col gap-10   "> {/*w-[576px]*/}
-            {blogs?.map((blog)=>(<BlogCard 
+            {blogs.contents?.map((blog:blogProp)=>(<BlogCard 
             key={blog.id}
             id={blog.id}
             authorName={blog.author.name || "Anonymous"}

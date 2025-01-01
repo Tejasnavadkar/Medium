@@ -8,6 +8,7 @@ import { Blog } from './pages/Blog'
 import { Blogs } from './pages/Blogs'
 import { Publish } from './pages/Publish'
 import { PrivateRoute } from './components/PrivateRoute'
+import { RecoilRoot } from 'recoil'
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
 
   return (
     <>
+    <RecoilRoot>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<SignUp />} />
@@ -27,6 +29,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
+      </RecoilRoot>
     </>
   )
 }

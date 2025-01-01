@@ -1,19 +1,22 @@
 import { useParams } from "react-router-dom"
 import { FullBlog } from "../components/FullBlog"
-import { blogProp, useBlog } from "../hooks"
 import { AppBar } from "../components/AppBar"
 import { Spinner } from "../components/Spinner"
+import { useRecoilValueLoadable } from "recoil"
+import { getBlogPost } from "../Store/atoms"
 
 
 
 
 export function Blog() {
     const { id } = useParams()
-    const { isloading, blog } = useBlog({
-        id: id || ""
-    })
+    const blog = useRecoilValueLoadable(getBlogPost(id))
+    // const { isloading, blog } = useBlog({
+    //     id: id || ""
+    // })
+    console.log("recoilBlog--",blog)
 
-    if (isloading || !blog) {
+    if (blog.state === 'loading' || !blog) {
         return <>
           <div className="max-h-screen">
           <AppBar/>
@@ -23,11 +26,13 @@ export function Blog() {
            
         </>
     }
+
+
     return <>
         <div className="">
             <AppBar />
             <div className="flex justify-center">
-                <FullBlog blog={blog} />
+                <FullBlog blog={blog.contents} />
             </div>
         </div>
 

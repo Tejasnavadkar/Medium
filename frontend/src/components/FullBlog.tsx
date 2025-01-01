@@ -23,10 +23,10 @@ export const FullBlog = ({blog}:{blog:blogProp}) => {
             <div className="font-semibold">Author</div>
             <div className="flex gap-2 items-center">
                 <div>
-                    <Avatar name={blog?.author.name || "Anonymous" } />
+                    <Avatar name={blog?.author?.name || "Anonymous" } />
                 </div>
                <div>
-               <div className="font-bold text-2xl">{blog?.author.name || "Anonymous"}</div>
+               <div className="font-bold text-2xl">{blog?.author?.name || "Anonymous"}</div>
                <div className="text-slate-500 ">
                   Random catch phrase about author's ability to grab the users attention 
                </div>
