@@ -1,13 +1,12 @@
-import { Link, useNavigate } from "react-router-dom"
-import { Avatar } from "./Avatar"
+import { Link} from "react-router-dom"
 import UserProfileDropdown from "./UserProfileDropdown"
 
 
 export const AppBar = () => {
  
-   const navigate = useNavigate()
+//    const navigate = useNavigate()
 
-   const user = JSON.parse(localStorage.getItem('user') || '{}')
+//    const user = JSON.parse(localStorage.getItem('user') || '{}')
     // const Logout = () =>{
     //     localStorage.clear()
     //     navigate('/')

@@ -4,7 +4,6 @@ import { useState } from "react"
 import { signupInputType } from '@tejasnavadkar/medium-common'
 import axios from "axios"
 import { BACKEND_URL } from "../config"
-import { Spinner } from "./Spinner"
 import { AuthSpinner } from "./AuthSpinner"
 
 

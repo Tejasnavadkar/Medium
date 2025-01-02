@@ -1,5 +1,3 @@
-import { AppBar } from "./AppBar"
-import { Dot } from "./Dot"
 
 
 export const BlogSkeleton = () =>{
