@@ -9,6 +9,7 @@ import { Blogs } from './pages/Blogs'
 import { Publish } from './pages/Publish'
 import { PrivateRoute } from './components/PrivateRoute'
 import { RecoilRoot } from 'recoil'
+import { UsersPost } from './pages/UsersPost'
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
             <Route path='/blog/:id' element={<Blog />} />
             <Route path='/blogs' element={<Blogs />} />
             <Route path='/publish' element={<Publish />} />
+            <Route path='/yourPosts'element={<UsersPost/>}  /> 
           </Route>
         </Routes>
       </BrowserRouter>

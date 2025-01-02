@@ -45,5 +45,27 @@ export const getAllBlogs = atom({
     })
 })
 
+export const getUsersBlog = atom({
+    key:'getUsersBlog',
+    default:selector({
+        key:'getUsersBlogSelector',
+        get:async ()=>{
+           try {
+            const response = await axios.get(`${BACKEND_URL}/api/v1/blog/userPosts`,{
+                headers:{
+                    Authorization:"bearer " + localStorage.getItem('token')
+                }
+            })
+
+            return response.data.userpost
+           } catch (error) {
+
+            console.log("Error while getUsersBlogRecoil--",error)
+            
+           }
+        }
+    })
+})
+
 
 

@@ -33,7 +33,7 @@ export const Blogs = () =>{
             <AppBar/>
         </div>
        <div className="flex justify-center">
-       <div className="flex flex-col gap-10   "> {/*w-[576px]*/}
+       <div className="flex flex-col gap-10 "> {/*w-[576px]*/}
             {blogs.contents?.map((blog:blogProp)=>(<BlogCard 
             key={blog.id}
             id={blog.id}

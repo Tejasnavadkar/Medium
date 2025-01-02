@@ -113,6 +113,37 @@ blogRouter.get('/bulk',async (c)=>{
     }
   })
 
+   blogRouter.get('/userPosts',async (c)=>{
+
+  try {
+    const prisma = new PrismaClient({
+        datasourceUrl:c.env.DATABASE_URL
+    }).$extends(withAccelerate())
+
+    const userId = c.get('user_id')
+
+   const usersposts = await prisma.blog.findMany({
+        where:{
+            author_id:parseInt(userId)
+        },
+        include:{
+            author:true
+        }
+    })
+
+    if(usersposts){
+        return c.json({userpost:usersposts})
+    }
+
+
+
+  } catch (error) {
+    console.log('err while getting specific usersPosts',error)
+    return c.json({er:error})
+  }
+
+  })
+
   blogRouter.get('/:id', async (c)=>{
    try {
     const prisma = new PrismaClient({
@@ -189,6 +220,9 @@ blogRouter.get('/bulk',async (c)=>{
         return c.json({err:error})
     }
   })
+
+
+ 
   
   
 

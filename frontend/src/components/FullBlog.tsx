@@ -2,10 +2,7 @@ import { blogProp } from "../hooks"
 import { Avatar } from "./Avatar"
 
 
-//Taxing Laughter: The Joke Tax Chronicles
-// Future of Wikipedia", cited a trend analysis concerning data published by the Wikimedia Foundation stating that "[t]he number of editors for the English-language version has fallen by a third in seven years
-// The attrition rate for active editors in English Wikipedia was cited by The Economist as substantially in contrast to statistics for Wikipedia in other languages (non-English Wikipedia). The Economist reported that the number of contributors with an average of five or more edits per month was relatively constant since 2008 for Wikipedia in other languages at approximately 42,000 editors within narrow seasonal variances of about 2,000 editors up or down. The number of active editors in English Wikipedia, by "sharp" comparison, was cited as peaking in 2007 at approximately 50,
-            
+           
 export const FullBlog = ({blog}:{blog:blogProp}) => {
 
     return <div className="grid grid-cols-3 gap-4 p-6 w-full border max-w-screen-xl">
@@ -15,7 +12,7 @@ export const FullBlog = ({blog}:{blog:blogProp}) => {
                 <div className="font-medium text-gray-500">posted on August 24, 2023</div>
             </div>
             <div className="text-lg">
-            {blog.content}   
+            {blog?.content}   
             </div>
         </div>
 

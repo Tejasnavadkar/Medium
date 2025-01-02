@@ -32,7 +32,7 @@ export function Blog() {
         <div className="">
             <AppBar />
             <div className="flex justify-center">
-                <FullBlog blog={blog.contents} />
+                <FullBlog blog={blog?.contents} />
             </div>
         </div>
 
