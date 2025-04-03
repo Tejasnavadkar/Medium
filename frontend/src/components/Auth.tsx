@@ -65,7 +65,7 @@ export const Auth = ({type}:{type:"SignUp" | "SignIn"}) => {
                         { type === "SignIn" ? "Login into account" : "Create an account"}
                     </div>
                     <div className="text-gray-600 font-medium">
-                       {type === "SignIn" ? "Don't have an account?" : "Already have an account?" }<Link to={ type === "SignIn" ? "/signup" : "/signin"}>{ type === "SignIn" ? "SignUp" : "Login"}</Link>
+                       {type === "SignIn" ? "Don't have an account?" : "Already have an account?" }<Link to={ type === "SignIn" ? "/" : "/signin"}>{ type === "SignIn" ? "SignUp" : "Login"}</Link>
                     </div>
                     {errorMessage && <div className="text-red-600">
                        {errorMessage} 
